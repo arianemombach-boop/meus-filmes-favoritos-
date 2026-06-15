@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineStream &mdash; Filmes &amp; Séries</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="navbar__left">
+      <button class="navbar__hamburger" id="sidebarToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="#" class="navbar__logo">
+        <svg class="logo-icon" viewBox="0 0 90 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="20" rx="4" fill="#E50914"/>
+          <text x="4" y="15" font-size="13" font-weight="700" fill="white" font-family="Roboto,sans-serif">CS</text>
+          <text x="33" y="15" font-size="13" font-weight="700" fill="white" font-family="Roboto,sans-serif">CineStream</text>
+        </svg>
+      </a>
+    </div>
+
+    <div class="navbar__center">
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Pesquisar filmes, séries..." autocomplete="off" />
+        <button class="search-bar__btn" id="searchBtn" aria-label="Buscar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="navbar__right">
+      <button class="navbar__icon-btn" aria-label="Notificações">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+      </button>
+      <div class="navbar__avatar">N</div>
+    </div>
+  </header>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <nav class="sidebar__nav">
+      <a href="#" class="sidebar__item sidebar__item--active">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span>Início</span>
+      </a>
+      <a href="#" class="sidebar__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        <span>Em Alta</span>
+      </a>
+      <a href="#" class="sidebar__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span>Favoritos</span>
+      </a>
+      <a href="#" class="sidebar__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span>Minha Lista</span>
+      </a>
+      <hr class="sidebar__divider"/>
+      <p class="sidebar__section-title">Categorias</p>
+      <a href="#" class="sidebar__item" data-filter="romance">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span>Romance</span>
+      </a>
+      <a href="#" class="sidebar__item" data-filter="acao">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <span>Ação</span>
+      </a>
+      <a href="#" class="sidebar__item" data-filter="drama">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 15s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        <span>Drama</span>
+      </a>
+      <a href="#" class="sidebar__item" data-filter="comedia">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 13s1.5 3 4 3 4-3 4-3"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        <span>Comédia</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content" id="mainContent">
+
+    <!-- HERO BANNER -->
+    <section class="hero" id="heroBanner">
+      <div class="hero__overlay"></div>
+      <img src="minha-culpa-londres.jpg" alt="Minha Culpa: Londres" class="hero__bg" />
+      <div class="hero__info">
+        <span class="hero__badge">NOVO</span>
+        <h1 class="hero__title">Minha Culpa: Londres</h1>
+        <div class="hero__meta">
+          <span class="hero__rating">
+            <svg viewBox="0 0 24 24" fill="#FFD700" width="16" height="16"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            7.2
+          </span>
+          <span>2025</span>
+          <span class="hero__tag">Romance</span>
+          <span class="hero__tag">Drama</span>
+          <span>1h 58min</span>
+        </div>
+        <p class="hero__desc">Noah, de 18 anos, se muda dos EUA para Londres com a mãe, que recentemente se apaixonou por William, um rico empresário britânico. Quando ela conhece o filho de William, Nick, uma atração inesperada surge entre eles.</p>
+        <div class="hero__actions">
+          <button class="btn btn--primary" onclick="openModal('minha-culpa-londres')">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Assistir Agora
+          </button>
+          <button class="btn btn--secondary" onclick="toggleFavorite(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Minha Lista
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTER CHIPS -->
+    <section class="filters" id="filterSection">
+      <button class="chip chip--active" data-filter="all">Todos</button>
+      <button class="chip" data-filter="romance">Romance</button>
+      <button class="chip" data-filter="acao">Ação</button>
+      <button class="chip" data-filter="drama">Drama</button>
+      <button class="chip" data-filter="comedia">Comédia</button>
+      <button class="chip" data-filter="suspense">Suspense</button>
+    </section>
+
+    <!-- SECTION: EM DESTAQUE -->
+    <section class="section">
+      <h2 class="section__title">Em Destaque</h2>
+      <div class="cards-grid" id="cardsGrid">
+
+        <!-- CARD 1 — Minha Culpa: Londres (modelo principal) -->
+        <article class="card" data-id="minha-culpa-londres" data-genre="romance drama">
+          <div class="card__thumb-wrap">
+            <img src="minha-culpa-londres.jpg" alt="Minha Culpa: Londres" class="card__thumb" loading="lazy" />
+            <div class="card__overlay">
+              <button class="card__play-btn" onclick="openModal('minha-culpa-londres')" aria-label="Assistir">
+                <svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+            </div>
+            <span class="card__badge card__badge--new">NOVO</span>
+            <button class="card__fav-btn" onclick="toggleFavorite(this)" aria-label="Favoritar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="card__info">
+            <div class="card__title-row">
+              <h3 class="card__title">Minha Culpa: Londres</h3>
+              <span class="card__rating">
+                <svg viewBox="0 0 24 24" fill="#FFD700" width="12" height="12"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                7.2
+              </span>
+            </div>
+            <p class="card__meta">2025 &bull; 1h 58min &bull; Romance / Drama</p>
+            <p class="card__desc">Noah se muda para Londres e se apaixona pelo meio-irmão, Nick, filho do novo marido de sua mãe.</p>
+            <div class="card__tags">
+              <span class="tag">Romance</span>
+              <span class="tag">Drama</span>
+              <span class="tag">Prime Video</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 2 -->
+        <article class="card" data-id="culpa-mia" data-genre="romance drama">
+          <div class="card__thumb-wrap">
+            <div class="card__thumb card__thumb--placeholder" style="background: linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);">
+              <div class="placeholder-content">
+                <span class="placeholder-icon">🎬</span>
+                <span class="placeholder-title">Culpa Mia</span>
+              </div>
+            </div>
+            <div class="card__overlay">
+              <button class="card__play-btn" onclick="openModal('culpa-mia')" aria-label="Assistir">
+                <svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+            </div>
+            <button class="card__fav-btn" onclick="toggleFavorite(this)" aria-label="Favoritar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="card__info">
+            <div class="card__title-row">
+              <h3 class="card__title">Culpa Mia</h3>
+              <span class="card__rating">
+                <svg viewBox="0 0 24 24" fill="#FFD700" width="12" height="12"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                7.0
+              </span>
+            </div>
+            <p class="card__meta">2023 &bull; 1h 56min &bull; Romance / Drama</p>
+            <p class="card__desc">Noah se muda para a mansão de seu novo padrasto e se apaixona por Nick, o filho rebelde da família.</p>
+            <div class="card__tags">
+              <span class="tag">Romance</span>
+              <span class="tag">Drama</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 3 -->
+        <article class="card" data-id="sua-culpa" data-genre="romance drama">
+          <div class="card__thumb-wrap">
+            <div class="card__thumb card__thumb--placeholder" style="background: linear-gradient(135deg,#2d1b69,#11998e,#38ef7d);">
+              <div class="placeholder-content">
+                <span class="placeholder-icon">🎬</span>
+                <span class="placeholder-title">Sua Culpa</span>
+              </div>
+            </div>
+            <div class="card__overlay">
+              <button class="card__play-btn" onclick="openModal('sua-culpa')" aria-label="Assistir">
+                <svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+            </div>
+            <span class="card__badge card__badge--hot">POPULAR</span>
+            <button class="card__fav-btn" onclick="toggleFavorite(this)" aria-label="Favoritar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="card__info">
+            <div class="card__title-row">
+              <h3 class="card__title">Sua Culpa</h3>
+              <span class="card__rating">
+                <svg viewBox="0 0 24 24" fill="#FFD700" width="12" height="12"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                6.8
+              </span>
+            </div>
+            <p class="card__meta">2024 &bull; 2h 04min &bull; Romance / Drama</p>
+            <p class="card__desc">A continuação da saga de Noah e Nick, onde os dois enfrentam novos desafios em seu relacionamento proibido.</p>
+            <div class="card__tags">
+              <span class="tag">Romance</span>
+              <span class="tag">Drama</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 4 -->
+        <article class="card" data-id="depois" data-genre="romance drama">
+          <div class="card__thumb-wrap">
+            <div class="card__thumb card__thumb--placeholder" style="background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);">
+              <div class="placeholder-content">
+                <span class="placeholder-icon">🎬</span>
+                <span class="placeholder-title">Depois</span>
+              </div>
+            </div>
+            <div class="card__overlay">
+              <button class="card__play-btn" onclick="openModal('depois')" aria-label="Assistir">
+                <svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+            </div>
+            <button class="card__fav-btn" onclick="toggleFavorite(this)" aria-label="Favoritar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="card__info">
+            <div class="card__title-row">
+              <h3 class="card__title">Depois</h3>
+              <span class="card__rating">
+                <svg viewBox="0 0 24 24" fill="#FFD700" width="12" height="12"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                5.8
+              </span>
+            </div>
+            <p class="card__meta">2019 &bull; 1h 45min &bull; Romance / Drama</p>
+            <p class="card__desc">Tessa, uma jovem estudiosa, tem sua vida transformada ao conhecer o misterioso e rebelde Hardin Scott na faculdade.</p>
+            <div class="card__tags">
+              <span class="tag">Romance</span>
+              <span class="tag">Drama</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 5 -->
+        <article class="card" data-id="cinco-pés" data-genre="romance drama">
+          <div class="card__thumb-wrap">
+            <div class="card__thumb card__thumb--placeholder" style="background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);">
+              <div class="placeholder-content">
+                <span class="placeholder-icon">🎬</span>
+                <span class="placeholder-title">Cinco Pés Apart</span>
+              </div>
+            </div>
+            <div class="card__overlay">
+              <button class="card__play-btn" onclick="openModal('cinco-pes')" aria-label="Assistir">
+                <svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+            </div>
+            <button class="card__fav-btn" onclick="toggleFavorite(this)" aria-label="Favoritar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="card__info">
+            <div class="card__title-row">
+              <h3 class="card__title">Cinco Pés Apart</h3>
+              <span class="card__rating">
+                <svg viewBox="0 0 24 24" fill="#FFD700" width="12" height="12"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                7.4
+              </span>
+            </div>
+            <p class="card__meta">2019 &bull; 1h 56min &bull; Romance / Drama</p>
+            <p class="card__desc">Dois adolescentes com fibrose cística se apaixonam no hospital, mas precisam manter distância para sobreviver.</p>
+            <div class="card__tags">
+              <span class="tag">Romance</span>
+              <span class="tag">Drama</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 6 -->
+        <article class="card" data-id="a-barraca" data-genre="romance comedia">
+          <div class="card__thumb-wrap">
+            <div class="card__thumb card__thumb--placeholder" style="background: linear-gradient(135deg,#f7971e,#ffd200);">
+              <div class="placeholder-content">
+                <span class="placeholder-icon">🎬</span>
+                <span class="placeholder-title">A Barraca do Beijo</span>
+              </div>
+            </div>
+            <div class="card__overlay">
+              <button class="card__play-btn" onclick="openModal('a-barraca')" aria-label="Assistir">
+                <svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+            </div>
+            <button class="card__fav-btn" onclick="toggleFavorite(this)" aria-label="Favoritar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="card__info">
+            <div class="card__title-row">
+              <h3 class="card__title">A Barraca do Beijo</h3>
+              <span class="card__rating">
+                <svg viewBox="0 0 24 24" fill="#FFD700" width="12" height="12"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                6.1
+              </span>
+            </div>
+            <p class="card__meta">2018 &bull; 1h 45min &bull; Romance / Comédia</p>
+            <p class="card__desc">Elle Evans se apaixona pelo irmão mais velho de seu melhor amigo após os dois trabalharem juntos em uma barraca de beijos.</p>
+            <div class="card__tags">
+              <span class="tag">Romance</span>
+              <span class="tag">Comédia</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 7 -->
+        <article class="card" data-id="para-todos" data-genre="romance drama">
+          <div class="card__thumb-wrap">
+            <div class="card__thumb card__thumb--placeholder" style="background: linear-gradient(135deg,#1e3c72,#2a5298);">
+              <div class="placeholder-content">
+                <span class="placeholder-icon">🎬</span>
+                <span class="placeholder-title">Para Todos os Garotos</span>
+              </div>
+            </div>
+            <div class="card__overlay">
+              <button class="card__play-btn" onclick="openModal('para-todos')" aria-label="Assistir">
+                <svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+            </div>
+            <button class="card__fav-btn" onclick="toggleFavorite(this)" aria-label="Favoritar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="card__info">
+            <div class="card__title-row">
+              <h3 class="card__title">Para Todos os Garotos</h3>
+              <span class="card__rating">
+                <svg viewBox="0 0 24 24" fill="#FFD700" width="12" height="12"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                7.1
+              </span>
+            </div>
+            <p class="card__meta">2018 &bull; 1h 39min &bull; Romance / Comédia</p>
+            <p class="card__desc">As cartas de amor secretas de Lara Jean são enviadas acidentalmente para todos os garotos que ela já amou.</p>
+            <div class="card__tags">
+              <span class="tag">Romance</span>
+              <span class="tag">Comédia</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 8 -->
+        <article class="card" data-id="era-uma-vez" data-genre="acao suspense">
+          <div class="card__thumb-wrap">
+            <div class="card__thumb card__thumb--placeholder" style="background: linear-gradient(135deg,#373b44,#4286f4);">
+              <div class="placeholder-content">
+                <span class="placeholder-icon">🎬</span>
+                <span class="placeholder-title">Era Uma Vez</span>
+              </div>
+            </div>
+            <div class="card__overlay">
+              <button class="card__play-btn" onclick="openModal('era-uma-vez')" aria-label="Assistir">
+                <svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+            </div>
+            <button class="card__fav-btn" onclick="toggleFavorite(this)" aria-label="Favoritar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="card__info">
+            <div class="card__title-row">
+              <h3 class="card__title">Era Uma Vez em Hollywood</h3>
+              <span class="card__rating">
+                <svg viewBox="0 0 24 24" fill="#FFD700" width="12" height="12"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                7.6
+              </span>
+            </div>
+            <p class="card__meta">2019 &bull; 2h 41min &bull; Drama / Suspense</p>
+            <p class="card__desc">Um ator de faroeste em declínio e seu dublê tentam encontrar seu lugar na indústria do cinema de Hollywood em 1969.</p>
+            <div class="card__tags">
+              <span class="tag">Drama</span>
+              <span class="tag">Suspense</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECTION: MAIS ASSISTIDOS -->
+    <section class="section">
+      <h2 class="section__title">Mais Assistidos esta Semana</h2>
+      <div class="cards-row" id="cardsRow">
+
+        <article class="card card--horizontal" data-id="minha-culpa-londres" data-genre="romance drama">
+          <div class="card__thumb-wrap card__thumb-wrap--sm">
+            <img src="minha-culpa-londres.jpg" alt="Minha Culpa: Londres" class="card__thumb" loading="lazy" />
+            <div class="card__overlay">
+              <button class="card__play-btn" onclick="openModal('minha-culpa-londres')" aria-label="Assistir">
+                <svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+            </div>
+            <span class="rank-badge">1</span>
+          </div>
+          <div class="card__info">
+            <h3 class="card__title">Minha Culpa: Londres</h3>
+            <p class="card__meta">2025 &bull; Romance / Drama</p>
+            <p class="card__desc">Noah se muda para Londres e se apaixona pelo meio-irmão Nick.</p>
+          </div>
+        </article>
+
+        <article class="card card--horizontal" data-id="sua-culpa" data-genre="romance drama">
+          <div class="card__thumb-wrap card__thumb-wrap--sm">
+            <div class="card__thumb card__thumb--placeholder" style="background: linear-gradient(135deg,#2d1b69,#11998e,#38ef7d);">
+              <div class="placeholder-content"><span class="placeholder-icon">🎬</span></div>
+            </div>
+            <div class="card__overlay">
+              <button class="card__play-btn" onclick="openModal('sua-culpa')" aria-label="Assistir">
+                <svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+            </div>
+            <span class="rank-badge">2</span>
+          </div>
+          <div class="card__info">
+            <h3 class="card__title">Sua Culpa</h3>
+            <p class="card__meta">2024 &bull; Romance / Drama</p>
+            <p class="card__desc">A continuação da saga de Noah e Nick.</p>
+          </div>
+        </article>
+
+        <article class="card card--horizontal" data-id="culpa-mia" data-genre="romance drama">
+          <div class="card__thumb-wrap card__thumb-wrap--sm">
+            <div class="card__thumb card__thumb--placeholder" style="background: linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);">
+              <div class="placeholder-content"><span class="placeholder-icon">🎬</span></div>
+            </div>
+            <div class="card__overlay">
+              <button class="card__play-btn" onclick="openModal('culpa-mia')" aria-label="Assistir">
+                <svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+            </div>
+            <span class="rank-badge">3</span>
+          </div>
+          <div class="card__info">
+            <h3 class="card__title">Culpa Mia</h3>
+            <p class="card__meta">2023 &bull; Romance / Drama</p>
+            <p class="card__desc">Noah e Nick — o início de uma paixão proibida.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal" id="modal" onclick="event.stopPropagation()">
+      <button class="modal__close" onclick="closeModal()" aria-label="Fechar">&times;</button>
+      <div class="modal__content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
